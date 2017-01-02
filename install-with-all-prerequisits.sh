@@ -10,8 +10,11 @@ clear
 
 apt-get -y update 
 
-# NPM NODE AND LEGACY STUFF
-apt install -y libwww-curl-perl 
+# REMOVE EXISTING NODEJS PACKAGES AND CLEANUP
+
+apt-get purge -y nodejs nodejs-legacy npm
+apt-get autoremove -y
+apt-get autoclean -y
 
 # NPM NODE MORE RECENT STUFF
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
