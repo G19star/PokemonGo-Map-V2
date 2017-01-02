@@ -10,8 +10,11 @@ clear
 
 apt-get -y update 
 
-# NPM NODE AND LEGACY STUFF
-apt install -y libwww-curl-perl 
+# REMOVE EXISTING NODEJS PACKAGES AND CLEANUP
+
+apt-get purge -y nodejs nodejs-legacy npm
+apt-get autoremove -y
+apt-get autoclean -y
 
 # NPM NODE MORE RECENT STUFF
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
@@ -32,4 +35,3 @@ echo -e -n "\n\n\tHERE WE GO AGAIN!" && for i in {10..30};do echo -e -n "." ;((i
 wget https://raw.githubusercontent.com/ultrafunkamsterdam/PokemonGo-Map-V2/develop/easy-install.sh
 sudo chmod 755 easy-install.sh
 bash ./easy-install.sh
-
